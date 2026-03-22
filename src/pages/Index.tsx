@@ -5,7 +5,10 @@ import { Features } from "@/components/sections/Features";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { CTA } from "@/components/sections/CTA";
-import { Contact } from "@/components/sections/Contact";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { AboutPreview } from "@/components/sections/AboutPreview";
 
 const Index = () => {
   return (
@@ -13,11 +16,11 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <AboutPreview />
         <Features />
         <Projects />
         <Skills />
         <CTA />
-        <Contact />
       </main>
       <Footer />
     </div>

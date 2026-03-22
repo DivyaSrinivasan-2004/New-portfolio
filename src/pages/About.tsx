@@ -1,206 +1,269 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Download, MapPin, Calendar, Coffee } from "lucide-react";
+import { Download, MapPin, Clock, ArrowRight, Zap, ShieldCheck, Sparkles, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const timeline = [
+const stats = [
+  { label: "Projects", value: "3", hint: "Cafe Billing, Records, Cookbook" },
+  { label: "Page perf", value: "+25%", hint: "React + Django optimizations" },
+  { label: "APIs shipped", value: "20+", hint: "REST endpoints across apps" },
+];
+
+const pillars = [
   {
-    year: "2024",
-    title: "Senior Full-Stack Developer",
-    company: "Tech Startup",
-    description: "Leading development of cloud-native applications and mentoring junior developers.",
+    icon: ShieldCheck,
+    title: "API-first",
+    desc: "Django/Flask REST with auth, validation, observability, and rollback plans.",
   },
   {
-    year: "2023",
-    title: "Full-Stack Developer",
-    company: "Digital Agency",
-    description: "Built custom web applications for clients across various industries.",
+    icon: Sparkles,
+    title: "Polished UI",
+    desc: "React + Tailwind, motion, accessibility, and responsive systems for calm UX.",
   },
   {
-    year: "2022",
-    title: "Junior Developer",
-    company: "Software Company",
-    description: "Started professional journey building React applications and learning backend development.",
+    icon: Zap,
+    title: "Performance",
+    desc: "Query tuning, caching, and metrics to cut errors and boost speed.",
   },
 ];
 
-const values = [
+const experience = [
   {
-    icon: Coffee,
-    title: "Clean Code",
-    description: "I believe in writing code that's readable, maintainable, and well-documented.",
+    range: "May 2025 – Mar 2026",
+    title: "Full Stack Developer",
+    company: "Manha Facility Management, Chennai",
+    details: [
+      "Built responsive React + Django/Flask apps; improved page performance by 25%.",
+      "Designed REST APIs and integrated MySQL backends for billing and operations.",
+      "Worked in Agile sprints using Git for reviews, debugging, and delivery.",
+    ],
   },
   {
-    icon: Calendar,
-    title: "Continuous Learning",
-    description: "Technology evolves rapidly, and I'm committed to staying current with best practices.",
-  },
-  {
-    icon: MapPin,
-    title: "User-Centric",
-    description: "Every line of code should ultimately serve the user's needs and experience.",
+    range: "Feb 2025 – Apr 2025",
+    title: "Full Stack Developer Intern",
+    company: "Manha Facility Management, Chennai",
+    details: [
+      "Delivered React-based frontend modules with Django/MySQL services.",
+      "Assisted in API integration, testing, and performance tuning.",
+      "Collaborated with the team using Git and Agile ceremonies.",
+    ],
   },
 ];
+
+const projects = [
+  {
+    name: "Cafe Billing Software",
+    tech: "React, Django, PostgreSQL, REST",
+    impact: "Reduced billing errors by 30% and sped up transactions",
+  },
+  {
+    name: "Lanka Book of Records",
+    tech: "React, Django, PostgreSQL, Netlify",
+    impact: "National records platform with secure APIs and responsive UI",
+  },
+  {
+    name: "Cookbook – Virtual Kitchen Assistant",
+    tech: "React, Django REST, PostgreSQL",
+    impact: "Recipe search, nutrition prefs, and optimized queries",
+  },
+];
+
+const tools = [
+  "React.js",
+  "Tailwind CSS",
+  "TypeScript",
+  "Django",
+  "Flask",
+  "FastAPI",
+  "PostgreSQL",
+  "MySQL",
+  "Redis",
+  "Netlify",
+  "Render",
+  "Git/GitHub",
+  "GCP",
+];
+
+const fadeIn = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.6, delay },
+});
 
 const About = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[hsl(var(--background))]">
       <Navbar />
       <main className="pt-24">
-        {/* Hero Section */}
-        <section className="py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 hero-glow" />
-          <div className="floating-shape w-[400px] h-[400px] bg-primary/5 -top-20 -right-20" />
-          
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="inline-block text-sm font-medium text-primary mb-4 tracking-wide uppercase">
-                  About Me
-                </span>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                  Passionate Developer, <br />
-                  <span className="gradient-text">Problem Solver</span>
-                </h1>
-                <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                  I'm a full-stack developer with a passion for creating elegant solutions 
-                  to complex problems. My journey in tech started with curiosity about how 
-                  things work, and evolved into a career building applications that make 
-                  a difference.
-                </p>
-                <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                  When I'm not coding, you'll find me exploring new technologies, 
-                  contributing to open source, or sharing knowledge with the developer 
-                  community.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button variant="hero" size="lg" asChild>
-                    <Link to="/contact">Get in Touch</Link>
-                  </Button>
-                  <Button variant="outline" size="lg">
+        {/* Hero */}
+        <section className="relative overflow-hidden pb-16">
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--secondary))] to-[hsl(var(--background))]" />
+          <div className="absolute -left-24 top-6 w-80 h-80 rounded-full bg-[hsl(var(--gold))]/14 blur-3xl" />
+          <div className="absolute right-[-10%] top-24 w-96 h-96 rounded-full bg-[hsl(var(--royal-blue-light))]/16 blur-3xl" />
+
+          <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-accent text-xm font-semibold uppercase tracking-[0.2em]">
+                About Me
+              </span>
+              <h1 className="mt-4 text-4xl md:text-5xl font-heading leading-tight text-foreground">
+                Full-stack builder for performant, reliable launches.
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+                I’m Divya S, a full-stack developer (1+ year) crafting responsive React frontends and Django/Flask REST backends. I tune performance, design APIs, and ship calmly in Agile teams.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted-foreground">
+                <span className="px-3 py-1 rounded-full bg-[hsl(var(--secondary))] border border-[hsl(var(--border))]">Chennai, India • IST (GMT+5:30)</span>
+                <span className="px-3 py-1 rounded-full bg-[hsl(var(--secondary))] border border-[hsl(var(--border))]">React / Django / PostgreSQL</span>
+                <span className="px-3 py-1 rounded-full bg-[hsl(var(--secondary))] border border-[hsl(var(--border))]">Open to opportunities</span>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button variant="default" size="lg" className="btn-glow bg-[hsl(var(--royal-blue))] text-white hover:bg-[hsl(var(--royal-blue-light))]" asChild>
+                  <Link to="/contact" className="flex items-center gap-2">
+                    Get in Touch
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" className="border-[hsl(var(--border))] text-foreground" asChild>
+                  <Link to="/resume.pdf" className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
                     Download Resume
-                  </Button>
-                </div>
-              </motion.div>
+                  </Link>
+                </Button>
+              </div>
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {stats.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-xl border border-[hsl(var(--border))] bg-white/90 backdrop-blur-sm p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+                  >
+                    <p className="text-2xl font-semibold text-[hsl(var(--royal-blue))]">{item.value}</p>
+                    <p className="text-sm text-foreground font-medium">{item.label}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{item.hint}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-              {/* Image Placeholder */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-border flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary to-primary-light mb-6 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-primary-foreground">JD</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">John Developer</h3>
-                    <p className="text-muted-foreground">Full-Stack Engineer</p>
-                    <div className="flex items-center justify-center gap-2 mt-4 text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4" />
-                      San Francisco, CA
-                    </div>
+            {/* Profile card */}
+            <motion.div initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
+              <div className="relative rounded-3xl border border-[hsl(var(--border))] bg-white/90 backdrop-blur-xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(0,0,0,0.12)]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--royal-blue))]/8 via-transparent to-[hsl(var(--gold))]/10" />
+                <div className="relative z-10 flex flex-col items-center text-center gap-3">
+                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[hsl(var(--royal-blue))] via-[hsl(var(--royal-blue-light))] to-[hsl(var(--gold))] shadow-lg flex items-center justify-center text-white text-3xl font-bold">
+                    DS
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">Divya S</h3>
+                  <p className="text-muted-foreground">Full-Stack Developer</p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
+                    Chennai, India
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Clock className="w-4 h-4" />
+                    IST (GMT+5:30)
+                  </div>
+                  <div className="mt-4 grid grid-cols-3 gap-3 w-full">
+                    {pillars.map((p) => (
+                      <div key={p.title} className="rounded-xl bg-[hsl(var(--secondary))] border border-[hsl(var(--border))] p-3 flex flex-col items-center gap-2 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
+                        <p.icon className="w-5 h-5 text-[hsl(var(--royal-blue))]" />
+                        <span className="text-xs font-semibold text-foreground">{p.title}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Values Section */}
-        <section className="py-16 md:py-24 section-gradient">
-          <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-16"
-            >
-              <span className="inline-block text-sm font-medium text-primary mb-4 tracking-wide uppercase">
-                My Approach
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Values That Guide My Work
-              </h2>
+        {/* Pillars */}
+        <section className="py-16 md:py-20 royal-section text-white">
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div {...fadeIn()} className="text-center mb-12">
+              <span className="inline-block text-sm font-semibold text-[hsl(var(--gold))] tracking-[0.2em] uppercase">How I work</span>
+              <h2 className="text-3xl md:text-4xl font-heading text-white mt-3">API-first, polished, performance-minded.</h2>
+              <p className="text-white/80 mt-3 max-w-2xl mx-auto">I pair expressive interfaces with resilient backends—measuring impact and keeping releases calm.</p>
             </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {values.map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card rounded-2xl border border-border p-8 text-center"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="w-7 h-7 text-primary" />
+            <div className="grid gap-6 md:grid-cols-3">
+              {pillars.map((item, idx) => (
+                <motion.div key={item.title} {...fadeIn(idx * 0.1)} className="card-advanced card-royal p-6">
+                  <div className="relative z-10 space-y-3">
+                    <item.icon className="w-6 h-6 text-[hsl(var(--gold))]" />
+                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                    <p className="muted text-sm leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className="py-16 md:py-24 bg-background">
+        {/* Experience teaser */}
+        <section className="py-16 md:py-20 section-gradient">
           <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-16"
-            >
-              <span className="inline-block text-sm font-medium text-primary mb-4 tracking-wide uppercase">
-                Experience
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                My Journey So Far
-              </h2>
+            <motion.div {...fadeIn()} className="text-center mb-10">
+              <span className="inline-block text-sm font-semibold text-accent tracking-[0.2em] uppercase">Experience</span>
+              <h2 className="text-3xl md:text-4xl font-heading text-foreground mt-3">Where I’ve been</h2>
+              <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">Snapshot of recent roles. Tap through for the full experience timeline.</p>
             </motion.div>
 
-            <div className="max-w-2xl mx-auto">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-8 pb-12 last:pb-0"
-                >
-                  {/* Timeline Line */}
-                  {index < timeline.length - 1 && (
-                    <div className="absolute left-[11px] top-6 bottom-0 w-0.5 bg-border" />
-                  )}
-                  
-                  {/* Timeline Dot */}
-                  <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-primary-foreground" />
-                  </div>
-
-                  <div className="bg-card rounded-xl border border-border p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-accent text-primary rounded-full mb-3">
-                      {item.year}
+            <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+              {experience.slice(0, 2).map((role, idx) => (
+                <motion.div key={role.title} {...fadeIn(idx * 0.1)} className="card-advanced p-5 bg-white/95">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                    <span className="px-2 py-1 rounded-full bg-[hsl(var(--secondary))] border border-[hsl(var(--border))] font-semibold text-[hsl(var(--foreground))]">
+                      {role.range}
                     </span>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-primary mb-2">{item.company}</p>
-                    <p className="text-muted-foreground text-sm">{item.description}</p>
                   </div>
+                  <h3 className="text-lg font-semibold text-foreground">{role.title}</h3>
+                  <p className="text-sm text-[hsl(var(--royal-blue))] font-semibold mb-2">{role.company}</p>
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    {role.details.slice(0, 2).map((d) => (
+                      <li key={d} className="flex gap-2">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[hsl(var(--royal-blue))]" />
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex justify-center">
+              <Button variant="outline" className="border-[hsl(var(--border))] bg-primary text-white" asChild>
+                <Link to="/experience">View full experience</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Projects summary */}
+        <section className="py-16 md:py-20 royal-section text-white">
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div {...fadeIn()} className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+              <div>
+                <span className="inline-block text-sm font-semibold text-[hsl(var(--gold))] tracking-[0.2em] uppercase">Selected work</span>
+                <h2 className="text-3xl font-heading text-white mt-2">Recent projects</h2>
+                <p className="text-white/80 mt-2 max-w-2xl">A quick glance at shipped products across billing, national records, and recipe search.</p>
+              </div>
+              <Button variant="outline" className="border-white/30 bg-accent text-white hover:bg-white" asChild>
+                <Link to="/projects">View Projects</Link>
+              </Button>
+            </motion.div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {projects.map((p, idx) => (
+                <motion.div key={p.name} {...fadeIn(idx * 0.1)} className="card-advanced card-royal p-5 border-2">
+                  <div className="flex items-center gap-2 text-xs text-white/75 mb-2">
+                    <Cpu className="w-4 h-4 text-[hsl(var(--gold))]" />
+                    <span>{p.tech}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{p.name}</h3>
+                  <p className="text-sm text-white/80">{p.impact}</p>
                 </motion.div>
               ))}
             </div>

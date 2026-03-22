@@ -1,58 +1,84 @@
-import { motion, useInView, AnimatePresence } from "framer-motion";
+﻿import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Code2, Server, Database, Wrench } from "lucide-react";
 
 const skillCategories = [
   {
+    id: "programming",
+    title: "Programming",
+    icon: Code2,
+    gradient: "linear-gradient(135deg, hsl(var(--royal-blue)) 0%, hsl(var(--royal-blue-light)) 50%, hsl(var(--gold)) 100%)",
+    skills: [
+      { name: "Python", level: 92 },
+      { name: "JavaScript (ES6+)", level: 90 },
+      { name: "TypeScript", level: 90 },
+      { name: "HTML5", level: 94 },
+      { name: "CSS3", level: 92 },
+    ],
+  },
+  {
     id: "frontend",
     title: "Frontend",
     icon: Code2,
-    color: "from-primary to-primary-light",
+    gradient: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--royal-blue-light)) 100%)",
     skills: [
-      { name: "React", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Next.js", level: 85 },
+      { name: "React.js", level: 92 },
       { name: "Tailwind CSS", level: 90 },
-      { name: "Framer Motion", level: 80 },
+      { name: "Material UI", level: 85 },
+      { name: "Vite", level: 88 },
+      { name: "Responsive Design", level: 94 },
     ],
   },
   {
     id: "backend",
-    title: "Backend",
+    title: "Backend / APIs",
     icon: Server,
-    color: "from-secondary to-secondary-light",
+    gradient: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--royal-blue)) 70%)",
     skills: [
-      { name: "Node.js", level: 90 },
-      { name: "Express", level: 85 },
-      { name: "Python", level: 80 },
-      { name: "Go", level: 65 },
-      { name: "GraphQL", level: 75 },
+      { name: "Django", level: 90 },
+      { name: "Flask", level: 84 },
+      { name: "FastAPI", level: 82 },
+      { name: "Django REST Framework", level: 90 },
+      { name: "RESTful APIs", level: 90 },
     ],
   },
   {
     id: "database",
-    title: "Database",
+    title: "Databases & Methodologies",
     icon: Database,
-    color: "from-primary to-secondary",
+    gradient: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--royal-blue)) 100%)",
     skills: [
-      { name: "PostgreSQL", level: 85 },
-      { name: "MongoDB", level: 80 },
-      { name: "Redis", level: 70 },
-      { name: "Prisma", level: 85 },
-      { name: "Supabase", level: 80 },
+      { name: "PostgreSQL", level: 88 },
+      { name: "MySQL", level: 86 },
+      { name: "NeonDB", level: 78 },
+      { name: "SQL (RDBMS)", level: 88 },
+      { name: "Performance Optimization", level: 84 },
+    ],
+  },
+  {
+    id: "libraries",
+    title: "Libraries & Deployment",
+    icon: Wrench,
+    gradient: "linear-gradient(135deg, hsl(var(--royal-blue)) 0%, hsl(var(--gold)) 90%)",
+    skills: [
+      { name: "Pandas / NumPy", level: 82 },
+      { name: "Matplotlib", level: 78 },
+      { name: "SQLAlchemy", level: 82 },
+      { name: "OpenAPI", level: 80 },
+      { name: "Netlify / Render / Cloud", level: 80 },
     ],
   },
   {
     id: "tools",
-    title: "DevOps",
+    title: "Tools",
     icon: Wrench,
-    color: "from-secondary-light to-primary",
+    gradient: "linear-gradient(135deg, hsl(var(--royal-blue-light)) 0%, hsl(var(--royal-blue)) 80%)",
     skills: [
-      { name: "Docker", level: 85 },
-      { name: "AWS", level: 75 },
-      { name: "Git", level: 95 },
-      { name: "CI/CD", level: 80 },
-      { name: "Linux", level: 85 },
+      { name: "Git / GitHub", level: 95 },
+      { name: "Google Cloud Platform", level: 78 },
+      { name: "VS Code", level: 92 },
+      { name: "PyCharm", level: 86 },
+      { name: "CLI / Linux", level: 84 },
     ],
   },
 ];
@@ -62,22 +88,14 @@ export function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeCategory, setActiveCategory] = useState("frontend");
 
-  const currentCategory = skillCategories.find(c => c.id === activeCategory)!;
+  const currentCategory = skillCategories.find((c) => c.id === activeCategory)!;
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Section Divider Top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      
-      {/* Background accent */}
-      <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl"
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.3, 0.5, 0.3]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
+    <section className="pt-24 pb-16 relative overflow-hidden bg-[hsl(var(--background))]">
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--secondary))] to-[hsl(var(--background))]" />
+      <div className="absolute -left-24 top-10 w-72 h-72 rounded-full bg-[hsl(var(--gold))]/14 blur-3xl" />
+      <div className="absolute right-[-10%] top-1/3 w-96 h-96 rounded-full bg-[hsl(var(--royal-blue-light))]/18 blur-3xl" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,hsla(var(--royal-blue)/0.08),transparent_40%)]" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -88,15 +106,14 @@ export function Skills() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-sm font-medium text-primary mb-4 tracking-wide uppercase">
+          <span className="inline-block text-sm font-semibold text-[hsl(var(--gold))] mb-3 tracking-[0.22em] uppercase">
             Technical Skills
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Technology Toolbox
+          <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-3">
+            Technology toolbox
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A curated set of technologies I work with daily to build robust, 
-            scalable applications.
+            The stacks I use daily to ship responsive frontends, reliable APIs, and optimized data layers.
           </p>
         </motion.div>
 
@@ -107,29 +124,28 @@ export function Skills() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex justify-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 p-2 bg-muted/50 rounded-2xl border border-border backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 p-2 bg-white rounded-2xl border border-[hsl(var(--border))] shadow-sm">
             {skillCategories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;
-              
+
               return (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
-                    isActive 
-                      ? "text-primary-foreground" 
-                      : "text-muted-foreground hover:text-foreground"
+                    isActive ? "text-[hsl(var(--navy))]" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeSkillTab"
-                      className={`absolute inset-0 bg-gradient-to-r ${category.color} rounded-xl`}
+                      className="absolute inset-0 rounded-xl"
+                      style={{ backgroundImage: category.gradient }}
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                  <Icon className={`w-4 h-4 relative z-10 ${isActive ? "text-primary-foreground" : ""}`} />
+                  <Icon className={`w-4 h-4 relative z-10 ${isActive ? "text-[hsl(var(--navy))]" : ""}`} />
                   <span className="relative z-10 hidden sm:inline">{category.title}</span>
                 </button>
               );
@@ -156,40 +172,42 @@ export function Skills() {
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="group relative"
                 >
-                  <div className="flex items-center gap-4 p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-300">
+                  <div className="flex items-center gap-4 p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-[hsl(var(--border))] hover:shadow-lg transition-all duration-300">
                     {/* Skill name */}
-                    <span className="w-32 text-sm font-medium text-foreground">
+                    <span className="w-40 text-sm font-semibold text-foreground">
                       {skill.name}
                     </span>
-                    
+
                     {/* Progress bar container */}
-                    <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
+                    <div className="flex-1 h-3 bg-[hsl(var(--muted))] rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${skill.level}%` }}
-                        transition={{ 
-                          duration: 0.8, 
+                        transition={{
+                          duration: 0.8,
                           delay: index * 0.1,
-                          ease: "easeOut" 
+                          ease: "easeOut",
                         }}
-                        className={`h-full bg-gradient-to-r ${currentCategory.color} rounded-full relative`}
+                        className="h-full rounded-full relative"
+                        style={{ backgroundImage: currentCategory.gradient }}
                       >
                         {/* Shimmer effect */}
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                           initial={{ x: "-100%" }}
                           animate={{ x: "100%" }}
-                          transition={{ 
-                            duration: 1.5, 
+                          transition={{
+                            duration: 1.5,
                             delay: index * 0.1 + 0.5,
-                            ease: "easeInOut"
+                            ease: "easeInOut",
+                            repeat: Infinity,
                           }}
                         />
                       </motion.div>
                     </div>
-                    
+
                     {/* Level indicator */}
-                    <span className="w-12 text-right text-sm font-semibold text-primary">
+                    <span className="w-12 text-right text-sm font-semibold text-[hsl(var(--royal-blue))]">
                       {skill.level}%
                     </span>
                   </div>
@@ -203,16 +221,16 @@ export function Skills() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-12 flex justify-center gap-3"
+            className="mt-10 flex justify-center gap-3"
           >
-            {skillCategories.map((category, index) => (
+            {skillCategories.map((category) => (
               <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  activeCategory === category.id 
-                    ? "bg-primary scale-125" 
-                    : "bg-muted hover:bg-muted-foreground/50"
+                  activeCategory === category.id
+                    ? "bg-[hsl(var(--royal-blue))] scale-125"
+                    : "bg-[hsl(var(--muted))] hover:bg-[hsl(var(--muted-foreground))]/40"
                 }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
@@ -222,8 +240,7 @@ export function Skills() {
         </div>
       </div>
 
-      {/* Section Divider Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border))] to-transparent" />
     </section>
   );
 }

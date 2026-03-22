@@ -9,6 +9,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Projects", path: "/projects" },
+  { name: "Experience", path: "/experience" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -47,7 +48,7 @@ export function Navbar() {
           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-glow transition-all duration-300">
             <Code2 className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="font-bold text-lg text-foreground">DevPortfolio</span>
+          <span className="font-bold text-lg text-foreground">Divya S</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -59,7 +60,7 @@ export function Navbar() {
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                 location.pathname === link.path
-                  ? "text-primary bg-accent"
+                  ? "text-white bg-accent"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
               )}
             >

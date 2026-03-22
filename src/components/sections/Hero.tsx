@@ -14,20 +14,20 @@ const floatingIcons = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16 bg-[hsl(var(--background))] text-foreground">
       {/* Background Elements */}
-      <div className="absolute inset-0 hero-glow" />
+      <div className="absolute inset-0 hero-glow opacity-80" />
       
       {/* Animated Grid Lines */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                         linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+      <div className="absolute inset-0 opacity-[0.06]" style={{
+        backgroundImage: `linear-gradient(hsla(var(--border) / 0.4) 1px, transparent 1px),
+                         linear-gradient(90deg, hsla(var(--border) / 0.4) 1px, transparent 1px)`,
         backgroundSize: '80px 80px'
       }} />
 
       {/* Floating accent shapes */}
       <motion.div 
-        className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-primary/40"
+        className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-[hsl(var(--primary))]/40"
         animate={{ 
           y: [0, -20, 0],
           opacity: [0.4, 0.8, 0.4]
@@ -35,7 +35,7 @@ export function Hero() {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div 
-        className="absolute top-1/3 right-1/3 w-1.5 h-1.5 rounded-full bg-primary/30"
+        className="absolute top-1/3 right-1/3 w-1.5 h-1.5 rounded-full bg-[hsl(var(--gold))]/35"
         animate={{ 
           y: [0, 15, 0],
           opacity: [0.3, 0.6, 0.3]
@@ -52,10 +52,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent border border-border mb-6"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-[hsl(var(--secondary))] text-[hsl(var(--royal-blue))] shadow-sm border border-[hsl(var(--border))] mb-6"
             >
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Available for new opportunities</span>
+              <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" />
+              <span className="text-sm font-semibold">Shipping delightful, production-ready builds</span>
             </motion.div>
 
             {/* Headline */}
@@ -63,20 +63,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
+              className="text-5xl md:text-6 leading-tight mb-6 font-heading gradient-text drop-shadow-lg"
             >
-              Crafting Digital
-              <span className="relative inline-block mx-2">
-                <span className="gradient-text">Experiences</span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-light rounded-full origin-left"
-                />
-              </span>
+              Crafting Digital Experiences
               <br />
-              That Matter
+              That Feel Premium & Alive
             </motion.h1>
 
             {/* Tagline */}
@@ -84,11 +75,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-muted-foreground max-w-lg mb-8 text-balance"
+              className="text-xl text-muted-foreground max-w-2xl mb-10 text-balance leading-relaxed"
             >
-              Full-stack developer passionate about building scalable applications 
-              with clean code and intuitive design. Turning complex problems into 
-              elegant solutions.
+              Full-stack partner for expressive products: lush visuals, joyful motion, resilient backends.
+              Your ideas ship with color, clarity, and calm execution.
             </motion.p>
 
             {/* CTAs */}
@@ -98,14 +88,14 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/projects" className="group">
+              <Button variant="default" size="xl" className="bg-primary text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--royal-blue-light))]" asChild>
+                <Link to="/projects" className="group font-semibold flex items-center gap-2">
                   Explore Work
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/contact">Contact Me</Link>
+              <Button variant="outline" size="xl" className=" border-accent text-accent hover:bg-accent" asChild>
+                <Link to="/contact" className="font-semibold">Contact Me</Link>
               </Button>
             </motion.div>
 
@@ -114,16 +104,16 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-12 flex gap-8"
+              className="mt-12 flex gap-10"
             >
               {[
-                { value: "3+", label: "Years Experience" },
-                { value: "20+", label: "Projects Built" },
-                { value: "100%", label: "Dedication" },
+                { value: "3+", label: "Years crafting colorful UI + UX" },
+                { value: "20+", label: "Launches shipped with polish" },
+                { value: "100%", label: "Hands-on build + delivery" },
               ].map((stat, index) => (
                 <div key={index} className="text-left">
-                  <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-3xl font-semibold text-[hsl(var(--royal-blue))]">{stat.value}</div>
+                  <div className="mt-1 text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -138,18 +128,18 @@ export function Hero() {
           >
             <div className="relative w-full aspect-square max-w-lg mx-auto">
               {/* Main circular container */}
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-accent via-background to-muted border border-border" />
+              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-[hsl(var(--royal-blue-light))]/20 via-[hsl(var(--background))] to-[hsl(var(--secondary))] border border-[hsl(var(--border))]" />
               
               {/* Rotating ring */}
               <motion.div 
-                className="absolute inset-4 rounded-full border border-dashed border-primary/20"
+                className="absolute inset-4 rounded-full border border-dashed border-[hsl(var(--primary))]/25"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
               
               {/* Pulsing glow */}
               <motion.div 
-                className="absolute inset-12 rounded-full bg-primary/5"
+                className="absolute inset-12 rounded-full bg-[hsl(var(--primary))]/8"
                 animate={{ 
                   scale: [1, 1.1, 1],
                   opacity: [0.3, 0.5, 0.3]
@@ -164,25 +154,25 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <div className="bg-card/90 backdrop-blur-sm rounded-2xl border border-border p-6 shadow-lg max-w-[200px]">
+                <div className="glass-card backdrop-blur-sm p-6 max-w-[240px] border border-[hsl(var(--border))]">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
-                    <div className="w-3 h-3 rounded-full bg-primary/60" />
+                    <div className="w-3 h-3 rounded-full bg-[hsl(var(--royal-blue-light))]" />
+                    <div className="w-3 h-3 rounded-full bg-[hsl(var(--gold))]" />
+                    <div className="w-3 h-3 rounded-full bg-[hsl(var(--primary))]" />
                   </div>
-                  <div className="space-y-2 font-mono text-xs">
+                  <div className="space-y-3 font-mono text-xs text-foreground">
                     <motion.div 
                       className="flex gap-2"
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.8 }}
                     >
-                      <span className="text-primary">const</span>
+                      <span className="text-[hsl(var(--royal-blue))]">const</span>
                       <span className="text-foreground">dev</span>
-                      <span className="text-muted-foreground">=</span>
+                      <span className="text-[hsl(var(--gold))]">=</span>
                     </motion.div>
                     <motion.div 
-                      className="pl-2 text-muted-foreground"
+                      className="pl-2 text-[hsl(var(--primary))]"
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 1 }}
@@ -197,7 +187,7 @@ export function Hero() {
               {floatingIcons.map(({ Icon, delay, x, y }, index) => (
                 <motion.div
                   key={index}
-                  className="absolute w-10 h-10 rounded-xl bg-card border border-border shadow-md flex items-center justify-center"
+                  className="absolute w-10 h-10 rounded-xl bg-card border border-[hsl(var(--border))] shadow-md flex items-center justify-center glass-card"
                   style={{ left: `${x}%`, top: `${y}%` }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ 
@@ -211,7 +201,7 @@ export function Hero() {
                     y: { delay: delay + 0.8, duration: 3, repeat: Infinity, ease: "easeInOut" }
                   }}
                 >
-                  <Icon className="w-5 h-5 text-primary" />
+                  <Icon className="w-5 h-5 text-[hsl(var(--primary))]" />
                 </motion.div>
               ))}
 
@@ -253,21 +243,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-        </motion.div>
-      </motion.div>
+      
     </section>
   );
 }
