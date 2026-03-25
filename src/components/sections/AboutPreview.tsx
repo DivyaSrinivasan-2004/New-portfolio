@@ -1,7 +1,7 @@
 ﻿import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Sparkles, ShieldCheck, Workflow, Activity } from "lucide-react";
+import { Sparkles, ShieldCheck, Database, Activity } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -13,8 +13,8 @@ const fadeUp = (delay = 0) => ({
 const pillars = [
   { icon: Sparkles, label: "Polished UI", desc: "React + Tailwind with accessibility, motion, and type discipline." },
   { icon: ShieldCheck, label: "API-first", desc: "Django/Flask REST APIs with auth, validation, and observability." },
-  { icon: Workflow, label: "Agile delivery", desc: "Ship in sprints with Git, reviews, and quick rollback lanes." },
-  { icon: Activity, label: "Performance", desc: "Cut page/billing errors, speed up queries, tune DB indices." },
+  { icon: Database, label: "Database Design", desc: "PostgreSQL, MySQL, NeonDB, SQL structure, and data-focused problem solving." },
+  { icon: Activity, label: "Performance", desc: "Debugging, database optimization, and cleaner workflows for reliable results." },
 ];
 
 export function AboutPreview() {
@@ -24,7 +24,7 @@ export function AboutPreview() {
     "stack: React, TypeScript, Django, REST...",
     "db: Postgres, MySQL | ui: Tailwind...",
     "recent: Cafe Billing | Records | Cookbook...",
-    "focus: performant releases + calm UX...",
+    "focus: responsive UI + optimized systems...",
   ];
 
   // precompute sequential typing timings so each line types after the previous finishes
@@ -130,19 +130,19 @@ export function AboutPreview() {
             About Me
           </span>
           <h2 className="heading-section text-4xl lg:text-5xl mb-4 leading-tight text-[hsl(var(--cream))] font-heading">
-            Full-stack builder for performant, reliable launches.
+            Full-stack developer for responsive, reliable digital products.
           </h2>
           <p className="text-body-large text-white/80 max-w-3xl leading-relaxed text-lg">
-            I'm a full-stack developer (1+ year) shipping responsive React frontends and Django/Flask REST APIs.
-            I integrate PostgreSQL/MySQL, tune performance, and keep Agile delivery smooth with Git-driven workflows.
-            Recent builds: cafe billing system, national records platform, and a virtual kitchen assistant.
+            I'm a full-stack developer with experience building responsive React frontends and Django or Flask based backends.
+            I work with PostgreSQL, MySQL, REST APIs, database design, debugging, and performance optimization.
+            Recent builds include cafe billing, national records, cookbook, booking, and management systems.
           </p>
           <div className="flex flex-wrap gap-3 mt-6">
             <Button variant="default" asChild className="shadow-glow bg-accent text-[hsl(var(--royal-blue))] hover:bg-[hsl(var(--gold-light))]">
               <Link to="/about">Dive into the full story</Link>
             </Button>
             <Button variant="outline" asChild className="hover:-translate-y-0.5 transition-transform border-white/30 text-navy">
-              <Link to="/experience">See how I deliver</Link>
+              <Link to="/experience">View Experience</Link>
             </Button>
           </div>
 

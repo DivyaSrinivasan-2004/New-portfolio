@@ -29,8 +29,8 @@ const features = [
   },
   {
     icon: Rocket,
-    title: "Ship & Operate",
-    description: "CI/CD, feature flags, health checks, and SLO-aware monitoring to keep launches predictable.",
+    title: "Build & Maintain",
+    description: "Version control, health checks, and monitoring-focused practices that support stable and reliable applications.",
     chips: ["CI/CD", "Feature Flags", "SLOs + Alerts"],
     aura: "shadow-[0_30px_120px_rgba(33,85,180,0.22)]",
     gradient: "linear-gradient(135deg, hsl(var(--royal-blue)) 0%, hsl(var(--royal-blue-light)) 90%)",
@@ -84,7 +84,7 @@ export function Features() {
             What I bring to every build
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-3 text-lg">
-            Full-stack depth with a calm, premium product layer—paired with delivery rails that keep launches smooth.
+            Full-stack depth with responsive frontend work, reliable backend systems, and performance-focused implementation.
           </p>
         </motion.div>
 
@@ -144,8 +144,8 @@ export function Features() {
         {/* Bottom info strip */}
         <div className="mt-12 grid md:grid-cols-3 gap-4">
           {[
-            { label: "Design + engineering + delivery aligned", tag: "Integrated" },
-            { label: "Ship calm: rollout guards, flags, observability", tag: "Calm" },
+            { label: "Design, development, and system thinking aligned", tag: "Integrated" },
+            { label: "Clean workflows with monitoring and reliability in mind", tag: "Focused" },
             { label: "Accessible, performant, premium experiences", tag: "Premium" },
           ].map((item) => (
             <div

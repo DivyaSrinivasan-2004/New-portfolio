@@ -55,7 +55,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-[hsl(var(--secondary))] text-[hsl(var(--royal-blue))] shadow-sm border border-[hsl(var(--border))] mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" />
-              <span className="text-sm font-semibold">Shipping delightful, production-ready builds</span>
+              <span className="text-sm font-semibold">Building polished, real-world web experiences</span>
             </motion.div>
 
             {/* Headline */}
@@ -77,8 +77,8 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mb-10 text-balance leading-relaxed"
             >
-              Full-stack partner for expressive products: lush visuals, joyful motion, resilient backends.
-              Your ideas ship with color, clarity, and calm execution.
+              Full-stack developer focused on expressive interfaces, reliable backends, and practical user experiences.
+              I build with clarity, responsiveness, and clean implementation.
             </motion.p>
 
             {/* CTAs */}
@@ -108,8 +108,8 @@ export function Hero() {
             >
               {[
                 { value: "3+", label: "Years crafting colorful UI + UX" },
-                { value: "20+", label: "Launches shipped with polish" },
-                { value: "100%", label: "Hands-on build + delivery" },
+                { value: "12+", label: "Projects built across web and mobile" },
+                { value: "100%", label: "Hands-on frontend and backend work" },
               ].map((stat, index) => (
                 <div key={index} className="text-left">
                   <div className="text-3xl font-semibold text-[hsl(var(--royal-blue))]">{stat.value}</div>

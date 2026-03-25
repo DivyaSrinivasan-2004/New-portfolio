@@ -27,13 +27,15 @@ const experiences = [
     location: "Chennai · Onsite",
     type: "Full-Time",
     summary:
-      "Led development of scalable web apps with optimized UI performance and robust backend APIs.",
+      "Worked on responsive web applications by building frontend features, supporting backend integrations, and improving overall application performance.",
     highlights: [
-      "Improved UI performance by 25% using optimized React architecture.",
-      "Designed REST APIs and integrated them with frontend systems.",
-      "Worked in Agile teams with Git workflows and CI/CD pipelines."
+      "Built responsive web features using HTML, CSS, JavaScript, and ReactJS, helping improve page load time by 25%.",
+      "Assisted in backend development and REST API integration for dynamic data handling across application modules.",
+      "Collaborated with the team using Git for version control, feature updates, debugging, and ongoing improvements.",
+      "Supported UI enhancements and component-level improvements to keep the user experience clear and responsive.",
+      "Worked across frontend and backend tasks to maintain practical, production-ready business applications."
     ],
-    tech: ["React", "TypeScript", "Django", "Flask", "MySQL", "Tailwind"]
+    tech: ["HTML", "CSS", "JavaScript", "ReactJS", "REST APIs", "Git"]
   },
   {
     company: "Manha Facility Management",
@@ -42,28 +44,32 @@ const experiences = [
     location: "Chennai · Hybrid",
     type: "Internship",
     summary:
-      "Built production-ready modules and improved API performance across systems.",
+      "Contributed to full-stack web modules by working on frontend development, backend connectivity, and application-level improvements.",
     highlights: [
-      "Developed full-stack modules using React and Django.",
-      "Integrated REST APIs with frontend and backend services.",
-      "Enhanced debugging and testing workflows."
+      "Developed full-stack web modules using HTML, CSS, JavaScript, and Django.",
+      "Assisted in building REST APIs and integrating frontend components with backend services.",
+      "Participated in debugging, testing, and optimizing application performance across modules.",
+      "Worked on connecting UI components with data-driven backend responses for smoother feature behavior.",
+      "Gained hands-on experience in practical full-stack development workflows within a team environment."
     ],
-    tech: ["React", "Django", "REST APIs", "MySQL", "Git"]
+    tech: ["HTML", "CSS", "JavaScript", "Django", "REST APIs", "Git"]
   },
   {
-    company: "Manha Facility Management",
-    role: "Full Stack Intern",
-    duration: "Jan 2025",
+    company: "8Queens Pvt Ltd",
+    role: "Web Developer Intern",
+    duration: "Nov 2024 – Dec 2024",
     location: "Chennai · Onsite",
     type: "Internship",
     summary:
-      "Supported UI enhancements, documentation, and QA testing in development lifecycle.",
+      "Worked on responsive website development, frontend improvements, and bug fixing to improve usability and performance.",
     highlights: [
-      "Worked on UI fixes and API integrations.",
-      "Documented workflows and onboarding processes.",
-      "Assisted QA testing and regression tracking."
+      "Designed and developed responsive web pages using HTML, CSS, and JavaScript.",
+      "Implemented UI improvements to enhance user experience and accessibility.",
+      "Maintained website functionality by fixing bugs and improving front-end performance.",
+      "Supported layout refinement and content presentation to make pages cleaner and easier to use.",
+      "Built a stronger foundation in frontend development through hands-on web project work."
     ],
-    tech: ["React", "HTML/CSS", "Git", "Django"]
+    tech: ["HTML", "CSS", "JavaScript", "Responsive Design", "Bug Fixing"]
   }
 ];
 
@@ -86,12 +92,11 @@ export default function ExperiencePage() {
               </p>
 
               <h1 className="text-5xl font-heading mt-4 leading-tight">
-                Building Scalable & High-Performance Systems
+                Professional Experience
               </h1>
 
               <p className="mt-4 text-white/80 max-w-2xl">
-                Focused on crafting efficient user experiences and robust backend systems
-                with modern technologies.
+                A detailed view of the roles where I worked on frontend development, backend integration, responsive interfaces, and performance improvements.
               </p>
             </motion.div>
           </div>
@@ -107,7 +112,7 @@ export default function ExperiencePage() {
                 Career Path
               </p>
               <h2 className="text-3xl font-heading mt-2">
-                Professional Experience
+                Detailed Experience Timeline
               </h2>
             </motion.div>
 

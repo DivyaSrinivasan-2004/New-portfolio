@@ -52,6 +52,8 @@ const skillCategories = [
       { name: "MySQL", level: 86 },
       { name: "NeonDB", level: 78 },
       { name: "SQL (RDBMS)", level: 88 },
+      { name: "Database Design", level: 86 },
+      { name: "Debugging", level: 87 },
       { name: "Performance Optimization", level: 84 },
     ],
   },
@@ -78,7 +80,6 @@ const skillCategories = [
       { name: "Google Cloud Platform", level: 78 },
       { name: "VS Code", level: 92 },
       { name: "PyCharm", level: 86 },
-      { name: "CLI / Linux", level: 84 },
     ],
   },
 ];
@@ -113,7 +114,7 @@ export function Skills() {
             Technology toolbox
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            The stacks I use daily to ship responsive frontends, reliable APIs, and optimized data layers.
+            The tools and technologies I use to build responsive frontends, reliable APIs, and optimized data layers.
           </p>
         </motion.div>
 

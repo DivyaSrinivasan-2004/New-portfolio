@@ -7,32 +7,21 @@ import { ArrowRight, Clock4, Layers, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projectsData } from "@/lib/projectsData";
 
-const smallProjects = [
-  {
-    id: 1,
-    name: "Cafe Billing Software",
-    description: "Full-stack café billing system with REST APIs, product/transaction models, and speed-focused UX.",
-    image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "PostgreSQL", "REST"],
-    impact: "Reduced billing errors by 30% & sped up transactions.",
-  },
-  {
-    id: 2,
-    name: "Lanka Book of Records",
-    description: "National records platform with secure REST APIs, responsive UI, and admin workflows.",
-    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "PostgreSQL", "Netlify"],
-    impact: "Launched with optimized performance on Netlify/Render.",
-  },
-  {
-    id: 3,
-    name: "Cookbook – Virtual Kitchen Assistant",
-    description: "Recipe search + nutrition preferences with feature flags and performant API layer.",
-    image: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "REST", "PostgreSQL"],
-    impact: "Improved query speed and user personalization.",
-  },
-];
+const featuredProjectSlugs = ["cafe-billing", "hrms", "lanka-records", "cookbook-assistant"];
+
+const featuredProjects = projectsData.filter((project) => featuredProjectSlugs.includes(project.slug));
+
+const smallProjects = projectsData
+  .filter((project) => !featuredProjectSlugs.includes(project.slug))
+  .map((project, index) => ({
+  id: index + 1,
+  slug: project.slug,
+  name: project.title,
+  description: project.summary,
+  image: project.heroImage,
+  tags: project.stack.slice(0, 4),
+  impact: project.highlights[0],
+}));
 
 const ProjectsPage = () => {
   const smallRef = useRef(null);
@@ -61,14 +50,13 @@ const ProjectsPage = () => {
               Featured <span className="gradient-text">Case Studies</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Three deep builds across IoT, fintech, and AI media. Each tile opens into a long-form narrative with
-              constraints, trade-offs, and measurable outcomes.
+              A portfolio of featured case studies and additional frontend and full-stack builds across healthcare, retail, booking, and management systems.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-              <span className="pill">Progressive delivery</span>
-              <span className="pill">Offline UX</span>
-              <span className="pill">Policy gates</span>
-              <span className="pill ghost">LLM copilots</span>
+              <span className="pill">React frontends</span>
+              <span className="pill">Django APIs</span>
+              <span className="pill">PostgreSQL</span>
+              <span className="pill ghost">12+ projects</span>
             </div>
           </motion.div>
         </div>
@@ -78,7 +66,7 @@ const ProjectsPage = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
           <div className="grid gap-10">
-            {projectsData.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.slug}
                 initial={{ opacity: 0, y: 40 }}
@@ -176,11 +164,11 @@ const ProjectsPage = () => {
           >
             <div>
               <span className="inline-block text-sm font-semibold text-[hsl(var(--gold))] mb-3 tracking-[0.2em] uppercase">
-                Other Small Works
+                Additional Projects
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading text-[hsl(var(--cream))] mb-3">Projects that deliver</h2>
+              <h2 className="text-3xl md:text-4xl font-heading text-[hsl(var(--cream))] mb-3">More of my work</h2>
               <p className="text-[hsl(var(--cream))]/80 max-w-xl">
-                Real products shipped with responsive React frontends, Django REST APIs, and optimized databases.
+                A wider set of frontend and full-stack projects covering booking systems, company sites, HR tools, retail apps, and student systems.
               </p>
             </div>
           </motion.div>
@@ -231,9 +219,7 @@ const ProjectsPage = () => {
 
                   <div className="flex items-center gap-3 pt-3">
                     <Button variant="secondary" className="text-[hsl(var(--navy))] bg-white hover:bg-white/90 rounded-full" asChild>
-                      <Link
-                        to={`/projects/${project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
-                      >
+                      <Link to={`/projects/${project.slug}`}>
                         View case study
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>

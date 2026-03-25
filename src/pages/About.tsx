@@ -6,26 +6,26 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const stats = [
-  { label: "Projects", value: "3", hint: "Cafe Billing, Records, Cookbook" },
-  { label: "Page perf", value: "+25%", hint: "React + Django optimizations" },
-  { label: "APIs shipped", value: "20+", hint: "REST endpoints across apps" },
+  { label: "Projects", value: "12+", hint: "3 featured case studies plus 9 additional builds" },
+  { label: "Core stacks", value: "6+", hint: "React, Django, Python, PostgreSQL and more" },
+  { label: "Specialties", value: "API + UI", hint: "Full-stack apps with responsive frontends" },
 ];
 
 const pillars = [
   {
     icon: ShieldCheck,
     title: "API-first",
-    desc: "Django/Flask REST with auth, validation, observability, and rollback plans.",
+    desc: "Builds Django REST APIs for billing, record workflows, recipe search, and management systems.",
   },
   {
     icon: Sparkles,
     title: "Polished UI",
-    desc: "React + Tailwind, motion, accessibility, and responsive systems for calm UX.",
+    desc: "Creates responsive React interfaces that stay clear, practical, and easy to use.",
   },
   {
     icon: Zap,
     title: "Performance",
-    desc: "Query tuning, caching, and metrics to cut errors and boost speed.",
+    desc: "Optimizes database design, debugging, and performance for reliable day-to-day usage.",
   },
 ];
 
@@ -35,9 +35,9 @@ const experience = [
     title: "Full Stack Developer",
     company: "Manha Facility Management, Chennai",
     details: [
-      "Built responsive React + Django/Flask apps; improved page performance by 25%.",
-      "Designed REST APIs and integrated MySQL backends for billing and operations.",
-      "Worked in Agile sprints using Git for reviews, debugging, and delivery.",
+      "Built responsive web features using HTML, CSS, JavaScript, and ReactJS.",
+      "Assisted in backend development and REST API integration for dynamic data handling.",
+      "Collaborated using Git for feature updates, debugging, and improvements.",
     ],
   },
   {
@@ -45,9 +45,19 @@ const experience = [
     title: "Full Stack Developer Intern",
     company: "Manha Facility Management, Chennai",
     details: [
-      "Delivered React-based frontend modules with Django/MySQL services.",
-      "Assisted in API integration, testing, and performance tuning.",
-      "Collaborated with the team using Git and Agile ceremonies.",
+      "Developed web modules using HTML, CSS, JavaScript, and Django.",
+      "Assisted in REST API building and frontend-backend integration.",
+      "Participated in debugging, testing, and performance optimization.",
+    ],
+  },
+  {
+    range: "Nov 2024 – Dec 2024",
+    title: "Web Developer Intern",
+    company: "8Queens Pvt Ltd, Chennai",
+    details: [
+      "Designed and developed responsive web pages using HTML, CSS, and JavaScript.",
+      "Implemented UI improvements to improve user experience and accessibility.",
+      "Maintained website functionality through bug fixing and frontend optimization.",
     ],
   },
 ];
@@ -55,18 +65,18 @@ const experience = [
 const projects = [
   {
     name: "Cafe Billing Software",
-    tech: "React, Django, PostgreSQL, REST",
-    impact: "Reduced billing errors by 30% and sped up transactions",
+    tech: "React, Python, Django, PostgreSQL, REST API",
+    impact: "Reduced billing errors by 30% and improved transaction speed and accuracy",
   },
   {
-    name: "Lanka Book of Records",
-    tech: "React, Django, PostgreSQL, Netlify",
-    impact: "National records platform with secure APIs and responsive UI",
+    name: "Lanka Book of Records Website",
+    tech: "React, Django, PostgreSQL, REST API, Netlify, Render",
+    impact: "National records platform with secure APIs, responsive UI, and admin approval flow",
   },
   {
-    name: "Cookbook – Virtual Kitchen Assistant",
-    tech: "React, Django REST, PostgreSQL",
-    impact: "Recipe search, nutrition prefs, and optimized queries",
+    name: "Cookbook - Virtual Kitchen Assistant",
+    tech: "React, Django, REST API, PostgreSQL",
+    impact: "Recipe search, nutrition APIs, filtering, and optimized performance",
   },
 ];
 
@@ -79,7 +89,11 @@ const tools = [
   "FastAPI",
   "PostgreSQL",
   "MySQL",
-  "Redis",
+  "NeonDB",
+  "SQLAlchemy",
+  "Pandas",
+  "NumPy",
+  "Matplotlib",
   "Netlify",
   "Render",
   "Git/GitHub",
@@ -113,7 +127,7 @@ const About = () => {
                 Full-stack builder for performant, reliable launches.
               </h1>
               <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-                I’m Divya S, a full-stack developer (1+ year) crafting responsive React frontends and Django/Flask REST backends. I tune performance, design APIs, and ship calmly in Agile teams.
+                I'm Divya S, a full-stack developer building responsive React frontends, Django-based backends, and PostgreSQL-powered applications for real-world products.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted-foreground">
                 <span className="px-3 py-1 rounded-full bg-[hsl(var(--secondary))] border border-[hsl(var(--border))]">Chennai, India • IST (GMT+5:30)</span>
@@ -186,7 +200,7 @@ const About = () => {
             <motion.div {...fadeIn()} className="text-center mb-12">
               <span className="inline-block text-sm font-semibold text-[hsl(var(--gold))] tracking-[0.2em] uppercase">How I work</span>
               <h2 className="text-3xl md:text-4xl font-heading text-white mt-3">API-first, polished, performance-minded.</h2>
-              <p className="text-white/80 mt-3 max-w-2xl mx-auto">I pair expressive interfaces with resilient backends—measuring impact and keeping releases calm.</p>
+              <p className="text-white/80 mt-3 max-w-2xl mx-auto">I pair practical user interfaces with reliable backends, focusing on performance, clean APIs, and maintainable delivery.</p>
             </motion.div>
             <div className="grid gap-6 md:grid-cols-3">
               {pillars.map((item, idx) => (
@@ -208,7 +222,7 @@ const About = () => {
             <motion.div {...fadeIn()} className="text-center mb-10">
               <span className="inline-block text-sm font-semibold text-accent tracking-[0.2em] uppercase">Experience</span>
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mt-3">Where I’ve been</h2>
-              <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">Snapshot of recent roles. Tap through for the full experience timeline.</p>
+              <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">A short overview of my recent roles across full-stack and frontend development.</p>
             </motion.div>
 
             <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">

@@ -1,10 +1,10 @@
 ﻿import { Link } from "react-router-dom";
-import { Code2, Github, Linkedin, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Code2, Github, Linkedin, Mail, MapPin, Clock, ArrowRight, Phone } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:hello@divyas.dev", label: "Email" },
+  { icon: Github, href: "https://github.com/DivyaSrinivasan-2004", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/divyasrinivasan04", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:divyas161104@gmail.com", label: "Email" },
 ];
 
 const navLinks = [
@@ -37,7 +37,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm">
-              I build responsive React frontends and Django/Flask REST backends—shipped with polish, performance, and calm delivery.
+              I build responsive React frontends and Django or Flask backends with clean APIs, practical UI, and performance-focused development.
             </p>
             <div className="flex items-center gap-3 flex-wrap">
               {socialLinks.map((social) => (
@@ -91,14 +91,18 @@ export function Footer() {
                 Chennai, India (remote-friendly)
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Phone className="w-4 h-4" />
+                +91 8939205504
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
                 IST (GMT+5:30)
               </div>
               <a
-                href="mailto:hello@divyas.dev"
+                href="mailto:divyas161104@gmail.com"
                 className="inline-flex items-center gap-2 text-[hsl(var(--royal-blue))] hover:text-[hsl(var(--royal-blue-light))] font-semibold transition-transform hover:translate-x-1"
               >
-                hello@divyas.dev
+                divyas161104@gmail.com
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>

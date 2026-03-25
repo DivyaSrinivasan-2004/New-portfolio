@@ -1,33 +1,41 @@
 ﻿import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
   {
     id: 1,
     name: "Cafe Billing Software",
-    description: "Full-stack café billing system with REST APIs, product/transaction models, and speed-focused UX.",
+    description: "Designed and developed a full-stack cafe billing system for managing orders, invoices, and payments.",
     image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "PostgreSQL", "REST"],
-    impact: "Reduced billing errors by 30% & sped up transactions.",
+    tags: ["React", "Python", "Django", "PostgreSQL", "REST API"],
+    impact: "Reduced billing errors by 30% and improved transaction speed and accuracy.",
   },
   {
     id: 2,
-    name: "Lanka Book of Records",
-    description: "National records platform with secure REST APIs, responsive UI, and admin workflows.",
+    name: "Lanka Book of Records Website",
+    description: "Developed a full-stack platform for managing and showcasing national records with secure admin workflows.",
     image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "PostgreSQL", "Netlify"],
-    impact: "Launched with optimized performance on Netlify/Render.",
+    tags: ["React", "Django", "PostgreSQL", "Netlify", "Render"],
+    impact: "Built responsive REST APIs and deployed with performance optimization.",
   },
   {
     id: 3,
-    name: "Cookbook – Virtual Kitchen Assistant",
-    description: "Recipe search + nutrition preferences with feature flags and performant API layer.",
+    name: "Cookbook - Virtual Kitchen Assistant",
+    description: "Developed a full-stack recipe assistant with recipe search, filtering, and user preference features.",
     image: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "REST", "PostgreSQL"],
-    impact: "Improved query speed and user personalization.",
+    tags: ["React", "Django", "REST API", "PostgreSQL"],
+    impact: "Integrated nutrition APIs and optimized PostgreSQL-backed performance.",
+  },
+  {
+    id: 4,
+    name: "HRMS",
+    description: "Developed a human resources management system for handling employee workflows, records, and administrative operations.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop",
+    tags: ["React", "Django", "PostgreSQL", "Admin Panel"],
+    impact: "Organized HR processes into a structured full-stack management platform.",
   },
 ];
 
@@ -58,7 +66,7 @@ export function Projects() {
               Projects that deliver
             </h2>
             <p className="text-[hsl(var(--cream))]/80 max-w-xl">
-              Real products shipped with responsive React frontends, Django REST APIs, and optimized databases.
+              Full-stack projects built with React, Django, PostgreSQL, and REST APIs for real-world workflows.
             </p>
           </div>
           <Button variant="outline" size="lg" className="border-white/40 bg-accent text-navy hover:bg-white" asChild>
@@ -74,7 +82,7 @@ export function Projects() {
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+          className="grid gap-6 md:grid-cols-2 xl:grid-cols-4"
         >
           {projects.map((project, index) => (
             <motion.div
@@ -92,21 +100,6 @@ export function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--royal-blue))]/70 via-transparent to-transparent" />
 
-                {/* Quick Actions */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href="#"
-                    className="w-9 h-9 rounded-lg bg-white/80 backdrop-blur-sm flex items-center justify-center text-[hsl(var(--royal-blue))] hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--navy))] transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-9 h-9 rounded-lg bg-white/80 backdrop-blur-sm flex items-center justify-center text-[hsl(var(--royal-blue))] hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--navy))] transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
               </div>
 
               {/* Content */}

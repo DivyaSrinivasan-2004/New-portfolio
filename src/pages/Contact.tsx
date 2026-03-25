@@ -2,21 +2,22 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Send, Mail, MapPin, Linkedin, Github, Twitter, MessageCircle } from "lucide-react";
+import { Send, Mail, MapPin, Linkedin, Github, MessageCircle, Phone, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@example.com", href: "mailto:hello@example.com" },
-  { icon: MapPin, label: "Location", value: "San Francisco, CA", href: "#" },
+  { icon: Mail, label: "Email", value: "divyas161104@gmail.com", href: "mailto:divyas161104@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+91 8939205504", href: "tel:+918939205504" },
+  { icon: MapPin, label: "Location", value: "Chennai, India", href: "#" },
   { icon: MessageCircle, label: "Response Time", value: "Within 24 hours", href: "#" },
 ];
 
 const socialLinks = [
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
+  { icon: Github, label: "GitHub", href: "https://github.com/DivyaSrinivasan-2004" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/divyasrinivasan04" },
+  { icon: Download, label: "Resume", href: "/resume.pdf" },
 ];
 
 const ContactPage = () => {
@@ -56,7 +57,7 @@ const ContactPage = () => {
               </h1>
               <p className="text-muted-foreground text-lg">
                 Have a project in mind or want to discuss an opportunity? 
-                I'd love to hear from you. Let's create something amazing together.
+                I'd love to hear from you. Reach out by email, phone, LinkedIn, or download my resume here.
               </p>
             </motion.div>
           </div>
@@ -161,6 +162,8 @@ const ContactPage = () => {
                         key={index}
                         href={item.href}
                         className="flex items-start gap-4 group"
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
                       >
                         <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-200">
                           <item.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground" />
@@ -188,6 +191,8 @@ const ContactPage = () => {
                         href={social.href}
                         aria-label={social.label}
                         className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-all duration-200"
+                        target={social.href.startsWith("http") ? "_blank" : undefined}
+                        rel={social.href.startsWith("http") ? "noreferrer" : undefined}
                       >
                         <social.icon className="w-5 h-5" />
                       </a>
@@ -207,8 +212,7 @@ const ContactPage = () => {
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Open for freelance projects and full-time opportunities. 
-                    Let's discuss how I can help bring your ideas to life!
+                    Open for full-time opportunities and project discussions. Feel free to connect through email, phone, or LinkedIn.
                   </p>
                 </div>
               </motion.div>
