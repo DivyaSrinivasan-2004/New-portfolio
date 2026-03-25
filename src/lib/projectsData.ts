@@ -7,6 +7,8 @@ export type ProjectCaseStudy = {
   role: string;
   summary: string;
   heroImage: string;
+  liveUrl?: string;
+  githubUrl?: string;
   palette: string;
   metrics: { label: string; value: string; detail?: string }[];
   challenges: string[];
@@ -28,7 +30,9 @@ export const projectsData: ProjectCaseStudy[] = [
     summary:
       "Designed and developed a full-stack cafe billing system for managing orders, invoices, payments, and daily sales workflows.",
     heroImage:
-      "https://images.unsplash.com/photo-1459257831348-f0cdd359235f?auto=format&fit=crop&w=1400&q=80",
+      "/cafe-bill.jpeg",
+    liveUrl: "#",
+    githubUrl: "https://github.com/DivyaSrinivasan-2004/bb",
     palette: "royal blue, cream, gold accents",
     metrics: [
       { label: "Billing Errors", value: "-30%", detail: "better invoice accuracy" },
@@ -69,10 +73,13 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Business Software",
     timeframe: "Full-stack management system",
     role: "Full Stack Developer",
+    liveUrl: "#",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/HRMS",
+
     summary:
       "Developed a human resources management system for handling employee data, workflows, and administrative operations through a structured web-based platform.",
     heroImage:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
+      "/hrms.jpeg",
     palette: "professional blue-gray with admin-focused clarity",
     metrics: [
       { label: "System", value: "HRMS", detail: "employee and admin workflows" },
@@ -113,10 +120,13 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Records Platform",
     timeframe: "Full-stack platform",
     role: "Full Stack Developer",
+    liveUrl: "https://lankabookofrecords.netlify.app/",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/record-certification-hub",
+
     summary:
       "Developed a full-stack platform for managing and showcasing national records with responsive UI, REST APIs, and admin approval tools.",
     heroImage:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
+      "/lanka.png",
     palette: "navy gradient with gold highlights",
     metrics: [
       { label: "Admin Flow", value: "Secure", detail: "approval and data management" },
@@ -157,6 +167,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Food Tech",
     timeframe: "Full-stack assistant",
     role: "Full Stack Developer",
+    liveUrl: "https://cookbook-virtual-kitchen.netlify.app/",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/CookBook-Your-Virtual-Kitchen_Assistant",
+
     summary:
       "Developed a full-stack recipe assistant using React and Django with search, filtering, recipe management, and nutrition-focused features.",
     heroImage:
@@ -201,10 +214,13 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Health Tech",
     timeframe: "Mobile application",
     role: "Frontend Mobile Developer",
+    liveUrl: "#",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/app_first",
+
     summary:
       "Built a healthcare appointment app using React Native Expo to help users browse doctors, select slots, and manage bookings through a smooth mobile-first experience.",
     heroImage:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80",
+      "/health-app.jpeg",
     palette: "clean blue, soft white, trust-first mobile UI",
     metrics: [
       { label: "Platform", value: "Mobile", detail: "React Native Expo app" },
@@ -245,6 +261,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Booking Platform",
     timeframe: "Frontend web application",
     role: "Frontend Developer",
+    liveUrl: "https://gamingandfoodlounge.netlify.app/",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/Food-And-Beverages-site",
+
     summary:
       "Designed a frontend-only website combining food ordering with gaming reservations for PS5, snooker, and gaming table bookings in one experience.",
     heroImage:
@@ -289,6 +308,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Corporate Website",
     timeframe: "Full-stack website",
     role: "Full Stack Developer",
+    liveUrl: "https://www.manovate.co.in/",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/Manovate_Site",
+
     summary:
       "Built a software company website with both frontend and backend support to present services, handle dynamic content, and support business communication flows.",
     heroImage:
@@ -333,6 +355,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Hospitality Website",
     timeframe: "Frontend website",
     role: "Frontend Developer",
+    liveUrl: "#",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/Cafe_Website",
+
     summary:
       "Created a frontend-only cafe website focused on visual storytelling, menu presentation, and a responsive browsing experience for customers.",
     heroImage:
@@ -353,7 +378,7 @@ export const projectsData: ProjectCaseStudy[] = [
       "Designed responsive layouts that keep menu browsing and brand presentation strong on both mobile and desktop.",
       "Focused on presentation-first storytelling to help the site feel warm, polished, and customer-friendly."
     ],
-    stack: ["React", "Frontend", "Responsive UI", "Menu Presentation", "Landing Page"],
+    stack: ["HTML", "CSS", "JavaScript", "Frontend", "Responsive UI", "Menu Presentation", "Landing Page"],
     timeline: [
       { phase: "Concept", focus: "Cafe visual direction", result: "Defined look and content flow" },
       { phase: "Design", focus: "Menu and section layouts", result: "Customer-facing pages completed" },
@@ -377,10 +402,13 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Education Tech",
     timeframe: "Full-stack system",
     role: "Full Stack Developer",
+    liveUrl: "#",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/Student_Lab-Face_Recognition-System",
+
     summary:
       "Built a full-stack attendance system using face recognition to support student lab entry tracking and automated attendance recording.",
     heroImage:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80",
+      "/face-reg.jpeg",
     palette: "technical blue with system-monitoring accents",
     metrics: [
       { label: "System", value: "Attendance", detail: "entry and tracking workflow" },
@@ -397,7 +425,7 @@ export const projectsData: ProjectCaseStudy[] = [
       "Designed frontend and backend flows that support student entry, attendance capture, and record tracking.",
       "Structured the system around reliable lab entry monitoring so attendance handling could become more automated."
     ],
-    stack: ["React", "Backend", "Face Recognition", "Attendance System", "Database"],
+    stack: ["HTML", "CSS", "JavaScript", "Backend", "Face Recognition", "Attendance System", "Database"],
     timeline: [
       { phase: "Research", focus: "Entry and attendance workflow", result: "Recognition-linked process defined" },
       { phase: "Implementation", focus: "Frontend, backend, and verification flow", result: "Automated attendance path created" },
@@ -421,6 +449,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Corporate Website",
     timeframe: "Frontend website",
     role: "Frontend Developer",
+    liveUrl: "https://www.tazvirotechnologies.com/",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/tazviro-ascent",
+
     summary:
       "Developed a frontend company website for Tazviro Technologies with responsive layouts, service-focused sections, and a professional brand presentation.",
     heroImage:
@@ -465,6 +496,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Beauty Booking",
     timeframe: "Frontend application",
     role: "Frontend Developer",
+    liveUrl: "#",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/appointment-booking",
+
     summary:
       "Designed a frontend-only salon appointment booking interface for browsing services, selecting slots, and making scheduling easier for users.",
     heroImage:
@@ -509,6 +543,9 @@ export const projectsData: ProjectCaseStudy[] = [
     sector: "Retail Software",
     timeframe: "Full-stack application",
     role: "Full Stack Developer",
+    liveUrl: "#",
+githubUrl: "https://github.com/DivyaSrinivasan-2004/SuperMarket",
+
     summary:
       "Built a full-stack supermarket system to support product handling, customer-facing flows, and backend-driven management operations in a retail context.",
     heroImage:
@@ -529,7 +566,7 @@ export const projectsData: ProjectCaseStudy[] = [
       "Designed interface flows that help present and organize supermarket-related actions clearly.",
       "Connected frontend and backend responsibilities to support broader retail workflow coverage."
     ],
-    stack: ["React", "Django", "PostgreSQL", "Retail System", "Management Platform"],
+    stack: ["HTML", "CSS", "JavaScript", "Flask", "PostgreSQL", "Retail System", "Management Platform"],
     timeline: [
       { phase: "Discovery", focus: "Retail workflow structure", result: "Core system areas identified" },
       { phase: "Development", focus: "Frontend and backend features", result: "Integrated supermarket platform built" },

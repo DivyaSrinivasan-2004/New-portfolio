@@ -1,43 +1,24 @@
-﻿import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { projectsData } from "@/lib/projectsData";
 
-const projects = [
-  {
-    id: 1,
-    name: "Cafe Billing Software",
-    description: "Designed and developed a full-stack cafe billing system for managing orders, invoices, and payments.",
-    image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop",
-    tags: ["React", "Python", "Django", "PostgreSQL", "REST API"],
-    impact: "Reduced billing errors by 30% and improved transaction speed and accuracy.",
-  },
-  {
-    id: 2,
-    name: "Lanka Book of Records Website",
-    description: "Developed a full-stack platform for managing and showcasing national records with secure admin workflows.",
-    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "PostgreSQL", "Netlify", "Render"],
-    impact: "Built responsive REST APIs and deployed with performance optimization.",
-  },
-  {
-    id: 3,
-    name: "Cookbook - Virtual Kitchen Assistant",
-    description: "Developed a full-stack recipe assistant with recipe search, filtering, and user preference features.",
-    image: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "REST API", "PostgreSQL"],
-    impact: "Integrated nutrition APIs and optimized PostgreSQL-backed performance.",
-  },
-  {
-    id: 4,
-    name: "HRMS",
-    description: "Developed a human resources management system for handling employee workflows, records, and administrative operations.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop",
-    tags: ["React", "Django", "PostgreSQL", "Admin Panel"],
-    impact: "Organized HR processes into a structured full-stack management platform.",
-  },
-];
+const featuredProjectSlugs = ["cafe-billing", "hrms", "lanka-records", "cookbook-assistant"];
+
+const projects = projectsData
+  .filter((project) => featuredProjectSlugs.includes(project.slug))
+  .slice(0, 4)
+  .map((project, index) => ({
+    id: index + 1,
+    slug: project.slug,
+    name: project.title,
+    description: project.summary,
+    image: project.heroImage,
+    tags: project.stack.slice(0, 4),
+    impact: project.highlights[0],
+  }));
 
 export function Projects() {
   const ref = useRef(null);
@@ -50,7 +31,6 @@ export function Projects() {
       <div className="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-[hsl(var(--royal-blue-light))]/16 blur-[120px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +57,6 @@ export function Projects() {
           </Button>
         </motion.div>
 
-        {/* Projects Grid */}
         <motion.div
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
           initial="hidden"
@@ -86,50 +65,49 @@ export function Projects() {
         >
           {projects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={project.slug}
               variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-400"
+              className="group"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--royal-blue))]/70 via-transparent to-transparent" />
-
-              </div>
-
-              {/* Content */}
-              <div className="p-6 space-y-3">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-white">{project.name}</h3>
-                  <span className="text-[11px] px-2 py-1 rounded-full bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))] border border-[hsl(var(--gold))]/40">
-                    {index + 1}
-                  </span>
+              <Link
+                to={`/projects/${project.slug}`}
+                className="block relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--royal-blue))]"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--royal-blue))]/70 via-transparent to-transparent" />
                 </div>
-                <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-[11px] font-semibold rounded-full bg-white/10 text-white border border-white/20"
-                    >
-                      {tag}
+                <div className="p-6 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-white">{project.name}</h3>
+                    <span className="text-[11px] px-2 py-1 rounded-full bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))] border border-[hsl(var(--gold))]/40">
+                      {index + 1}
                     </span>
-                  ))}
-                </div>
+                  </div>
+                  <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
 
-                {/* Impact */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-white/80 text-sm">
-                  <span>↗ {project.impact}</span>
-                  
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 text-[11px] font-semibold rounded-full bg-white/10 text-white border border-white/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between text-white/80 text-sm">
+                    <span>↗ {project.impact}</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

@@ -5,6 +5,8 @@ import { Download, MapPin, Clock, ArrowRight, Zap, ShieldCheck, Sparkles, Cpu } 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+const RESUME_PATH = "/Divya%20Resume.pdf";
+
 const stats = [
   { label: "Projects", value: "12+", hint: "3 featured case studies plus 9 additional builds" },
   { label: "Core stacks", value: "6+", hint: "React, Django, Python, PostgreSQL and more" },
@@ -142,10 +144,10 @@ const About = () => {
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" className="border-[hsl(var(--border))] text-foreground" asChild>
-                  <Link to="/resume.pdf" className="flex items-center gap-2">
+                  <a href={RESUME_PATH} download="Divya Resume.pdf" type="application/pdf" className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
                     Download Resume
-                  </Link>
+                  </a>
                 </Button>
               </div>
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">

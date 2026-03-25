@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+const RESUME_PATH = "/Divya%20Resume.pdf";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzvpvwv";
+
 const contactInfo = [
   { icon: Mail, label: "Email", value: "divyas161104@gmail.com", href: "mailto:divyas161104@gmail.com" },
   { icon: Phone, label: "Phone", value: "+91 8939205504", href: "tel:+918939205504" },
@@ -17,7 +20,7 @@ const contactInfo = [
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/DivyaSrinivasan-2004" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/divyasrinivasan04" },
-  { icon: Download, label: "Resume", href: "/resume.pdf" },
+  { icon: Download, label: "Resume", href: RESUME_PATH, download: true },
 ];
 
 const ContactPage = () => {
@@ -27,10 +30,49 @@ const ContactPage = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      setSubmitStatus({
+        type: "success",
+        message: "Message sent successfully. I will get back to you soon.",
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Something went wrong while sending your message. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -137,9 +179,18 @@ const ContactPage = () => {
                       />
                     </div>
                     <Button variant="hero" size="lg" type="submit" className="w-full">
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                       <Send className="w-4 h-4" />
                     </Button>
+                    {submitStatus && (
+                      <p
+                        className={`text-sm ${
+                          submitStatus.type === "success" ? "text-green-600" : "text-red-600"
+                        }`}
+                      >
+                        {submitStatus.message}
+                      </p>
+                    )}
                   </form>
                 </div>
               </motion.div>
@@ -189,6 +240,8 @@ const ContactPage = () => {
                       <a
                         key={index}
                         href={social.href}
+                        download={social.download ? "Divya Resume.pdf" : undefined}
+                        type={social.download ? "application/pdf" : undefined}
                         aria-label={social.label}
                         className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-all duration-200"
                         target={social.href.startsWith("http") ? "_blank" : undefined}

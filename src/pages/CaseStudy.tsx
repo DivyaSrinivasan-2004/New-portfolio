@@ -8,6 +8,8 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
+  ExternalLink,
+  Github,
   LayoutGrid,
   Sparkles,
   TrendingUp
@@ -28,6 +30,9 @@ const stagger = {
     }
   }
 };
+
+const hasLiveUrl = (url?: string) => Boolean(url && url.trim() && url.trim() !== "#");
+const hasGithubUrl = (url?: string) => Boolean(url && url.trim() && url.trim() !== "#");
 
 export default function CaseStudy() {
   const { slug } = useParams<{ slug: string }>();
@@ -60,7 +65,7 @@ export default function CaseStudy() {
                   {project.sector} · {project.role}
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20">
-                  {project.duration ?? "4 month build"}
+                  {project.timeframe ?? "4 month build"}
                 </span>
               </div>
             </div>
@@ -99,6 +104,30 @@ export default function CaseStudy() {
                   <Button variant="outline" className="bg-accent text-primary hover:bg-primary hover:text-white" asChild>
                     <Link to="/experience">Delivery Playbook</Link>
                   </Button>
+                  {hasLiveUrl(project.liveUrl) && (
+                    <Button
+                      variant="outline"
+                      className="bg-white/10 text-white border-white/20 hover:bg-white hover:text-primary"
+                      asChild
+                    >
+                      <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                        Live
+                        <ExternalLink className="ml-2 w-4 h-4" />
+                      </a>
+                    </Button>
+                  )}
+                  {hasGithubUrl(project.githubUrl) && (
+                    <Button
+                      variant="outline"
+                      className="bg-white/10 text-white border-white/20 hover:bg-white hover:text-primary"
+                      asChild
+                    >
+                      <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                        GitHub
+                        <Github className="ml-2 w-4 h-4" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
 
                 <div className="mt-10 grid sm:grid-cols-3 gap-4">

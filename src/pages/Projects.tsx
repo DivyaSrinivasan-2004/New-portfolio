@@ -3,13 +3,16 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowRight, Clock4, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, Clock4, ExternalLink, Github, Layers, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projectsData } from "@/lib/projectsData";
 
 const featuredProjectSlugs = ["cafe-billing", "hrms", "lanka-records", "cookbook-assistant"];
 
 const featuredProjects = projectsData.filter((project) => featuredProjectSlugs.includes(project.slug));
+
+const hasLiveUrl = (url?: string) => Boolean(url && url.trim() && url.trim() !== "#");
+const hasGithubUrl = (url?: string) => Boolean(url && url.trim() && url.trim() !== "#");
 
 const smallProjects = projectsData
   .filter((project) => !featuredProjectSlugs.includes(project.slug))
@@ -21,6 +24,8 @@ const smallProjects = projectsData
   image: project.heroImage,
   tags: project.stack.slice(0, 4),
   impact: project.highlights[0],
+  liveUrl: project.liveUrl,
+  githubUrl: project.githubUrl,
 }));
 
 const ProjectsPage = () => {
@@ -140,7 +145,22 @@ const ProjectsPage = () => {
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
                     </Button>
-                    
+                    {hasLiveUrl(project.liveUrl) && (
+                      <Button variant="outline" className="border-rounded" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                          Live
+                          <ExternalLink className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    )}
+                    {hasGithubUrl(project.githubUrl) && (
+                      <Button variant="outline" className="border-rounded" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                          GitHub
+                          <Github className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -224,6 +244,30 @@ const ProjectsPage = () => {
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
                     </Button>
+                    {hasLiveUrl(project.liveUrl) && (
+                      <Button
+                        variant="outline"
+                        className="rounded-full border-white/30 bg-transparent text-white hover:bg-white/10"
+                        asChild
+                      >
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                          Live
+                          <ExternalLink className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    )}
+                    {hasGithubUrl(project.githubUrl) && (
+                      <Button
+                        variant="outline"
+                        className="rounded-full border-white/30 bg-transparent text-white hover:bg-white/10"
+                        asChild
+                      >
+                        <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                          GitHub
+                          <Github className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </motion.div>
