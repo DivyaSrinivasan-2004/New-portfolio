@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const RESUME_PATH = "/Divya%20Resume.pdf";
 
 const stats = [
-  { label: "Projects", value: "12+", hint: "3 featured case studies plus 9 additional builds" },
+  { label: "Projects", value: "10+", hint: "3 featured case studies plus 9 additional builds" },
   { label: "Core stacks", value: "6+", hint: "React, Django, Python, PostgreSQL and more" },
   { label: "Specialties", value: "API + UI", hint: "Full-stack apps with responsive frontends" },
 ];

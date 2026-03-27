@@ -107,8 +107,8 @@ export function Hero() {
               className="mt-12 flex gap-10"
             >
               {[
-                { value: "3+", label: "Years crafting colorful UI + UX" },
-                { value: "12+", label: "Projects built across web and mobile" },
+                { value: "1", label: "Years crafting colorful UI + UX" },
+                { value: "10+", label: "Projects built across web and mobile" },
                 { value: "100%", label: "Hands-on frontend and backend work" },
               ].map((stat, index) => (
                 <div key={index} className="text-left">
